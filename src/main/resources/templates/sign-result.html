@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<div>
+  <th:block th:replace="fragments/navbar_items :: navbar"></th:block>
+</div>
+
+<p class="fs-2 text-center" th:text="'Hello, ' + ${user.getFullName()}"></p>
+<p class="text-center">This is your profile page</p>
+
+</body>
+</html>

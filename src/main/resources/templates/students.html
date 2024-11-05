@@ -1,0 +1,43 @@
+<!-- src/main/resources/templates/students.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<div>
+<th:block th:replace="fragments/navbar :: navbar"></th:block>
+</div>
+<div style="width: 90%;margin-left: 5%">
+    <table class="table table-success table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Birth Date</th>
+            <th scope="col">City</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${students}">
+            <th scope="row" th:text="${item.id}"></th>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.surname}"></td>
+            <td th:text="${item.birthDate}"></td>
+            <td th:text="${item.city}"></td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/get-student-info(id=${item.id})}">Details</a>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(students)}">
+            <td colspan="5">No items found.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

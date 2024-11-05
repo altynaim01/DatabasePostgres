@@ -1,0 +1,29 @@
+<!-- src/main/resources/templates/students.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Students</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+<div>
+    <th:block th:replace="fragments/navbar_items :: navbar"></th:block>
+</div>
+<p class="fs-2 text-center">Welcome to SHOP</p>
+<p class="text-center">Electronic devices with high quality and services</p>
+<div style="display: flex;flex-wrap: wrap;justify-content: space-around;gap: 15px;padding: 20px">
+<div th:each="item : ${items}" class="card" style="width: 30%;margin-bottom: 20px">
+    <div class="card-header">
+        <p th:text="${item.name}" style="text-align: center"></p>
+    </div>
+    <div class="card-body" style="width: auto; justify-content: center">
+        <h5 class="card-title" th:text="'$' + ${item.price}" style="color: green"></h5>
+        <p class="card-text" th:text="${item.description}"></p>
+        <a href="#" class="btn btn-success">Buy Now</a>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
